@@ -11,10 +11,18 @@
 |
 */
 
+// Not Logged in
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
+// Authentication routing
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Logged in
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function(){
+        return redirect(route("profiles.index"));
+    });
+    Route::resource('profiles', 'profileController');
+});
