@@ -13,6 +13,7 @@ use Laracasts\Flash\Flash;
 
 class ProfileController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

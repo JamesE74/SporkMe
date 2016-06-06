@@ -21,7 +21,7 @@ class SporkController extends Controller
      */
     public function store(Request $request)
     {
-        // Manual Validation
+        // Input Validation
         $this->validate($request, [
             'profile_id' => 'required|exists:profiles,id',
             'spork_type_id' => 'required|exists:spork_types,id',

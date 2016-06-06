@@ -21,7 +21,6 @@ class RegistrationTest extends TestCase
             ->type($user->password, 'password')
             ->type($user->password, 'password_confirmation')
             ->press('Register')
-            ->visit('/home')
-            ->see('You are logged in!');
+            ->seePageIs('/profiles');
     }
 }

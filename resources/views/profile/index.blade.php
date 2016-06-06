@@ -27,13 +27,13 @@
                                 {{ Form::open(array('url' => 'sporks')) }}
                                 {{ Form::hidden('profile_id', $profile->id) }}
                                 {{ Form::hidden('spork_type_id', 1) }}
-                                {{Form::button('Spoon! ('.$profile->spoons.')', ['class' => 'btn','type'=> 'submit'])}}
+                                {{Form::button('<i class="fa fa-spoon"></i> Spoon! ('.$profile->spoons.')', ['class' => 'btn','type'=> 'submit'])}}
                                 {{ Form::close() }}
 
                                 {{ Form::open(array('url' => 'sporks')) }}
                                 {{ Form::hidden('profile_id', $profile->id) }}
                                 {{ Form::hidden('spork_type_id', 2) }}
-                                {{Form::button('Fork! ('.$profile->forks.')', ['class' => 'btn','type'=> 'submit'])}}
+                                {{Form::button('<i class="fa fa-plug"></i> Fork! ('.$profile->forks.')', ['class' => 'btn', 'type'=> 'submit'])}}
                                 {{ Form::close() }}
 
                             </div>
