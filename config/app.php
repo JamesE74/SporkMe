@@ -148,6 +148,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -203,8 +205,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Input' => Illuminate\Support\Facades\Input::class
-
+        'Input' => Illuminate\Support\Facades\Input::class,
+        'Flash' => Laracasts\Flash\Flash::class
     ],
 
 ];

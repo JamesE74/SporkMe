@@ -3,12 +3,15 @@
 
 @section('content')
     <div class="container" id='profile_list'>
-
-
-        @if (Session::has('message'))
-            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @if(!$user->profile)
+            <div class="row">
+                <div class="alert alert-warning text-center">
+                    <p><strong>You have not created a profile. How do you expect to get spooned?</strong></p>
+                    <div><a href="{{route('profiles.create')}}">Click here to start getting spooned!</a></div>
+                </div>
+            </div>
         @endif
-
+        @include('flash::message')
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
@@ -21,6 +24,18 @@
                                     <li><strong>Reason to spoon: </strong> {{ $profile->spoon_reason }}</li>
                                     <li><strong>Reason not to fork: </strong> {{ $profile->fork_reason }}</li>
                                 </ul>
+                                {{ Form::open(array('url' => 'sporks')) }}
+                                {{ Form::hidden('profile_id', $profile->id) }}
+                                {{ Form::hidden('spork_type_id', 1) }}
+                                {{Form::button('Spoon! ('.$profile->spoons.')', ['class' => 'btn','type'=> 'submit'])}}
+                                {{ Form::close() }}
+
+                                {{ Form::open(array('url' => 'sporks')) }}
+                                {{ Form::hidden('profile_id', $profile->id) }}
+                                {{ Form::hidden('spork_type_id', 2) }}
+                                {{Form::button('Fork! ('.$profile->forks.')', ['class' => 'btn','type'=> 'submit'])}}
+                                {{ Form::close() }}
+
                             </div>
                         @endforeach
                     </div>

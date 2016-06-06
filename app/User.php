@@ -24,6 +24,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * The relationships to be eager loaded
+     *
+     * @var array
+     */
+    protected $with = [
+        'profile'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

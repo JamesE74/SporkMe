@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function(){
         return redirect(route("profiles.index"));
     });
+    Route::resource('sporks', 'sporkController');
     Route::resource('profiles', 'profileController');
 });

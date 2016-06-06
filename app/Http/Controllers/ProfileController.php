@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Laracasts\Flash\Flash;
 
 class ProfileController extends Controller
 {
@@ -21,6 +22,7 @@ class ProfileController extends Controller
     {
         // Return the list view of profiles to the index view.
         return View('profile.index', [
+            'user' => Auth::User(),
             'profiles' => Profile::all()
         ]);
     }
@@ -52,59 +54,19 @@ class ProfileController extends Controller
             'fork_reason' => 'required'
         ]);
 
+        // Create the profile
         $profile = new Profile;
         $profile->user_id = Auth::user()->id;
         $profile->nickname = Input::get('nickname');
         $profile->spoon_reason = Input::get('spoon_reason');
         $profile->fork_reason = Input::get('fork_reason');
-        $profile->save();
-        Session::flash('message', 'You just created a profile.  Prepare to be forked!');
+
+        // Save
+        if ($profile->save()){
+            Flash::success('You just created a profile.  Prepare to be forked!');
+        }
+
         return redirect('profiles');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

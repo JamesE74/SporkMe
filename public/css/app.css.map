@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA","file":"app.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAGA;EAGM,sBAAqB,EACtB","file":"app.css","sourcesContent":["// @import \"node_modules/bootstrap-sass/assets/stylesheets/bootstrap\";\n\n\n#profile_list {\n  .user-profile {\n    form{\n      display:inline-block;\n    }\n  }\n}\n"],"sourceRoot":"/source/"}
